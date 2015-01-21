@@ -14,7 +14,7 @@ var runSequence = require('run-sequence');
 var prependBowerPath = function (packageName) {
 	return path.join('./client/bower_components/', packageName);
 };
-var vendorStyles = ['angular-material/angular-material.css', 'angular-material/themes/*']
+var vendorStyles = ['angular-material/angular-material.css']
 	.map(prependBowerPath);
 var vendorScripts = ['angular/angular.js',
 	'angular-ui-router/release/angular-ui-router.js',
@@ -113,7 +113,7 @@ gulp.task('watch', function () {
 	gulp.watch([ 'server/**/*.js'], ['server:restart']);
 	gulp.watch([ 'client/app/**/*.js' ], ['js']);
 	gulp.watch([ 'client/app/**/*.less' ], ['css']);
-//	gulp.watch([ 'client/app/**/*.html' ], ['templates']);
+	gulp.watch([ 'client/app/**/*.html' ], ['templates']);
 	gulp.watch([ 'client/*.html' ], ['html']);
 
 	gulp.watch([
@@ -131,7 +131,7 @@ gulp.task('server:restart', function () {
 	restart();
 });
 
-gulp.task('html', ['vendors:css', 'css', 'vendors:js', 'js'], function () {
+gulp.task('html', ['vendors:css', 'css', 'vendors:js', 'js', 'templates'], function () {
 	return gulp.src('./client/index.html')
 		.pipe($gulp.inject(gulp.src(['./compiled/css/vendors*'], { read: false }), {
 			addRootSlash: false,
@@ -145,10 +145,10 @@ gulp.task('html', ['vendors:css', 'css', 'vendors:js', 'js'], function () {
 			addRootSlash: false,
 			ignorePath: 'compiled', name: 'jsvendors'
 		}))
-		/*.pipe($gulp.inject(gulp.src(['./compiled/js/templates*'], { read: false }), {
+		.pipe($gulp.inject(gulp.src(['./compiled/js/templates*'], { read: false }), {
 			addRootSlash: false,
 			ignorePath: 'compiled', name: 'templates'
-		}))*/
+		}))
 		.pipe($gulp.inject(gulp.src(['./compiled/js/app*'], { read: false }), {
 			addRootSlash: false,
 			ignorePath: 'compiled', name: 'app'

@@ -1,0 +1,103 @@
+.navbar {
+    background: @header-background;
+    color: @header-color;
+    line-height: @navbar-height;
+    position: relative;
+    z-index: 999;
+
+    .navbar-header {
+        padding: 0 1rem;
+
+        h1 {
+            a {
+                text-decoration: none;
+                color: @header-color;
+            }
+        }
+        .user-info {
+            margin-right: 1rem;
+        }
+
+        .nav-toggle {
+            cursor: pointer;
+            background: @accent-colour;
+            padding: 0 1.5rem;
+            height: @navbar-height;
+            display: inline-block;
+        }
+    }
+
+    nav {
+        @media @tablets {
+            display: block !important;
+        }
+
+        &.collapsed {
+            display: none;
+        }
+
+        ul {
+            line-height: 3rem;
+            border-top: 0.1rem solid @header-background;
+            @media @tablets {
+                line-height: @navbar-height;
+                border-top: none;
+            }
+            li {
+                @media @tablets {
+                    display: inline-block;
+                }
+
+                a {
+                    background: @header-background;
+                    color: @header-color;
+                    display: block;
+                    text-decoration: none;
+                    padding: 0.5rem 0.5rem;
+                    @media @tablets {
+                        display: inline-block;
+                        padding: 0 1rem;
+                        border-right: 0.1rem solid #333;
+                        transition: 0.3s;
+                        transition-delay: 0.1s;
+
+                        &:hover {
+                            box-shadow: 0px -6px 0px 0px #C51162 inset;
+                            padding: 0 2rem
+                        }
+                    }
+
+                    &.active {
+                        background: @accent-colour;
+                    }
+                }
+            }
+        }
+    }
+    /*
+
+        nav.collapsed-add,
+        nav.collapsed-remove {
+            transition: 0.3s linear all;
+            display: block !important;
+        }
+
+        nav.collapsed-add {
+            opacity: 1;
+        }
+
+        nav.collapsed-add.collapsed-add-active {
+            opacity: 0;
+        }
+
+        nav.collapsed-remove {
+            opacity: 0;
+        }
+
+        nav.collapsed-remove.collapsed-remove-active {
+            opacity: 1;
+        }
+    */
+
+}
+

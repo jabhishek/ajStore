@@ -1,0 +1,11 @@
+<div class="shopping-items">
+    <ul>
+        <li ng-repeat="item in mainVm.shopItems">
+            <div layout="row" layout-align="center center">
+                <span class="name" flex>{{ item.name }}</span>
+                <span class="price">{{ item.price }}</span>
+                <span class="add-button-container"><i class="fa fa-plus"></i></span>
+            </div>
+        </li>
+    </ul>
+</div>

@@ -25,3 +25,23 @@ body {
     line-height: 1.4;
     height: 100%;
 }
+
+h1 {
+    font-size: 3rem;
+}
+
+.view {
+    padding: 1rem;
+    margin-top: 5rem;
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    height: calc(~'100% - @{navbar-height}');
+
+}
+@import '/client/app/components/NavBar/NavBar.less';
+@import '/client/app/components/BasketBadge/BasketBadge.less';
+@import '/client/app/main/main.less';
