@@ -1,6 +1,9 @@
 (function () {
 	angular.module('AngularApp', ['ui.router', 'ngCookies', 'restangular', 'ngAnimate', 'LocalStorageModule', 'ngAria', 'ngMaterial'])
-		.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
+		.config(function($stateProvider, $urlRouterProvider, $locationProvider, localStorageServiceProvider) {
+			localStorageServiceProvider
+				.setPrefix('ajStore');
+
 			$stateProvider
 				.state('main', {
 					url: '/',

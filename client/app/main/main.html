@@ -4,7 +4,7 @@
             <div layout="row" layout-align="center center">
                 <span class="name" flex>{{ item.name }}</span>
                 <span class="price">{{ item.price }}</span>
-                <span class="add-button-container"><i class="fa fa-plus"></i></span>
+                <span class="add-button-container" ng-click="mainVm.addItemToBasket(item)"><i class="fa fa-plus"></i></span>
             </div>
         </li>
     </ul>
