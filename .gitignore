@@ -1,0 +1,5 @@
+# Created by .ignore support plugin (hsz.mobi)
+server/jsonParser.js
+client/bower_components
+.idea
+node_modules
