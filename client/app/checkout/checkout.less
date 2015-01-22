@@ -1,0 +1,107 @@
+@headerBorderColor: #333;
+@borderColor: #bbb;
+
+.manage-items {
+    h2 {
+        border-bottom: 2px solid @headerBorderColor;
+    }
+
+    .basket-items {
+        ul {
+            margin-bottom: 2rem;
+        }
+        .item {
+            .name {
+                font-weight: bold;
+            }
+            .quantity-container {
+                span:nth-of-type(2) {
+                    width:2rem;
+                    display: inline-block;
+                    text-align: center;
+                }
+                @media @tablets {
+                    width:3rem;
+                }
+            }
+            .price {
+                text-align: right;
+            }
+
+
+        }
+
+        .total {
+            border-bottom: 2px solid @borderColor;
+            border-top: 2px solid @borderColor;
+            font-weight: bold;
+            padding: 1rem 0;
+            margin-top: 1rem;
+            text-align: right;
+        }
+    }
+}
+
+.delivery-method, .confirmation {
+    margin-top: 5rem;
+    @media @tablets {
+        margin-top: 7rem;
+    }
+    h2 {
+        border-bottom: 2px solid @headerBorderColor;
+    }
+    h3 {
+        display: inline-block;
+        margin-bottom: 0;
+    }
+    select {
+        font-weight: bold;
+        @media @tablets {
+            margin-left: 1rem;
+        }
+    }
+
+    > div {
+        margin-top: 2rem;
+        font-weight: bold;
+    }
+    .price {
+        text-align: right;
+    }
+}
+
+.selected-method {
+    border-bottom: 2px solid @borderColor;
+    border-top: 2px solid @borderColor;
+    padding: 1rem 0;
+    margin-top: 1rem;
+}
+
+.confirmation  {
+    .amount-to-pay {
+        margin-top: 1.7rem;
+    }
+}
+
+.submit {
+    margin-top: 2rem;
+    text-align: center;
+
+    button {
+        padding: 1rem 5rem;
+        margin-top: 2rem;
+    }
+}
+
+.acknowledgement {
+    text-align: center;
+    margin-top: 2rem;
+    p {
+        margin-top: 2rem;
+
+    }
+
+    .order-number {
+        font-weight: bold;
+    }
+}

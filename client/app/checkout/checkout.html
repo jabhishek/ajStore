@@ -1,0 +1,63 @@
+<section class="basket-empty" ng-if="checkoutVm.basket.items.length === 0">
+    <h2>Nothing to Checkout!!</h2>
+    There are no items in basket. Click <a ui-sref="main">here</a> to shop.
+</section>
+
+<section class="checkout" ng-if="checkoutVm.basket.items.length > 0">
+    <section class="manage-items">
+        <h2>
+            Shopping Bag
+        </h2>
+
+        <div class="basket-items">
+            <ul>
+                <li ng-repeat="item in checkoutVm.basket.items">
+                    <div class="item" layout="row" layout-align="center center">
+                        <div flex="66" flex-sm="55">
+                            <span class="name">{{ item.name }}</span>
+                        </div>
+                        <div class="quantity-container" flex>
+                        <span class="add-button-container" ng-click="checkoutVm.basket.removeItem(item)"><i
+                                class="fa fa-minus"></i></span>
+
+                            <span>{{ item.quantity }}</span>
+                        <span class="add-button-container" ng-click="checkoutVm.basket.addItem(item)"><i
+                                class="fa fa-plus"></i></span>
+                        </div>
+                        <span class="price" flex="20" flex-gt-sm="10">{{ item.price * item.quantity | currency : '£' : 2}}</span>
+                    </div>
+                </li>
+            </ul>
+            <div class="total" layout="row" layout-align="end center">
+                <span class="price" flex="20" flex-gt-sm="10">{{ checkoutVm.basket.getBasketValue() | currency : '£' : 2 }}</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="delivery-method">
+        <h2>Delivery Instructions</h2>
+
+        <h3>Select Delivery Method:</h3>
+        <select name="delivery" id="delivery" ng-model="checkoutVm.selectedDeliveryMethod"
+                ng-options="method.name for method in checkoutVm.deliveryMethods"></select>
+
+        <div class="selected-method" layout="row" layout-align="end center">
+            <span class="text" flex>Delivery Cost:</span>
+            <span class="price" flex="20" flex-gt-sm="10">{{ checkoutVm.selectedDeliveryMethod.price | currency : '£' : 2 }}</span>
+        </div>
+
+    </section>
+    <section class="confirmation">
+        <h2>Confirmation</h2>
+
+        <div class="amount-to-pay" layout="row" layout-align="end center">
+            <span class="text" flex>Amount to Pay:</span>
+            <span class="price" flex="20" flex-gt-sm="10">{{ checkoutVm.totalCost() | currency : '£' : 2 }}</span>
+        </div>
+
+        <div class="submit">
+            <md-button class="md-raised md-primary" ng-click="checkoutVm.submitOrder()">Submit</md-button>
+        </div>
+
+    </section>
+</section>

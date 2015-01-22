@@ -3,7 +3,7 @@
         <li ng-repeat="item in mainVm.shopItems">
             <div layout="row" layout-align="center center">
                 <span class="name" flex>{{ item.name }}</span>
-                <span class="price">{{ item.price }}</span>
+                <span class="price">{{ item.price | currency : '£' : 2 }}</span>
                 <span class="add-button-container" ng-click="mainVm.addItemToBasket(item)"><i class="fa fa-plus"></i></span>
             </div>
         </li>

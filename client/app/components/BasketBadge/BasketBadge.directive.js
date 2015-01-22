@@ -1,15 +1,14 @@
 (function (app) {
-	app.directive("ajBasketBadge", function(BasketService) {
+	'use strict';
+	app.directive('ajBasketBadge', function(BasketService) {
 		return {
-			restrict: "E",
+			restrict: 'E',
 			templateUrl: 'components/BasketBadge/BasketBadge.html',
 			controller: function() {
 				var vm = this;
-				vm.basket = {
-					items: BasketService.items
-				};
+				vm.basket = BasketService;
 			},
-			controllerAs: "basketBadgeVm"
+			controllerAs: 'basketBadgeVm'
 		};
 	});
 })(angular.module('AngularApp'));

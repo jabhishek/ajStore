@@ -1,4 +1,5 @@
 (function (app) {
+	'use strict';
 	app.controller('MainController', function (ShopService, BasketService) {
 		var vm = this;
 		vm.shopItems = ShopService.ShopItems;
