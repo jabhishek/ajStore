@@ -12,6 +12,7 @@
 
 		vm.submitOrder = function() {
 			OrderService.orderNumber = Math.ceil(Math.random() * (1000000 - 100000) + 100000);
+			BasketService.clear();
 			$state.transitionTo('confirmation');
 		};
 	});

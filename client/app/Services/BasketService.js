@@ -6,7 +6,8 @@
 			getItemCount: getItemCount,
 			getBasketValue: getBasketValue,
 			addItem: addItem,
-			removeItem: removeItem
+			removeItem: removeItem,
+			clear: clear
 		};
 
 		init();
@@ -56,6 +57,10 @@
 				}
 
 			}
+			localStorageService.set('basket', basket.items);
+		}
+	    function clear() {
+			basket.items = [];
 			localStorageService.set('basket', basket.items);
 		}
 

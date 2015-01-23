@@ -48,15 +48,22 @@
 
     </section>
     <section class="confirmation">
-        <h2>Confirmation</h2>
+        <h2>Summary</h2>
 
-        <div class="amount-to-pay" layout="row" layout-align="end center">
-            <span class="text" flex>Amount to Pay:</span>
-            <span class="price" flex="20" flex-gt-sm="10">{{ checkoutVm.totalCost() | currency : '£' : 2 }}</span>
+        <div class="order-summary">
+            <h3 class="message">Please check the order details below and submit to confirm order.</h3>
+            <div class="delivery" layout="row" layout-align="end center">
+                <span class="text" flex>Delivery:</span>
+                <span class="mode">{{ checkoutVm.selectedDeliveryMethod.name }}</span>
+            </div>
+            <div class="amount" layout="row" layout-align="end center">
+                <span class="text" flex>Amount to Pay:</span>
+                <span class="price" flex="20" flex-gt-sm="10">{{ checkoutVm.totalCost() | currency : '£' : 2 }}</span>
+            </div>
         </div>
 
         <div class="submit">
-            <md-button class="md-raised md-primary" ng-click="checkoutVm.submitOrder()">Submit</md-button>
+            <md-button class="md-raised md-primary" ng-click="checkoutVm.submitOrder()">Submit Order</md-button>
         </div>
 
     </section>
